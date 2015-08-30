@@ -16,6 +16,7 @@ class TweetsTableViewController: UITableViewController {
         tableView.registerNib(UINib(nibName: "TweetTableViewCell", bundle: nil), forCellReuseIdentifier: "TweetTableViewCell")
         tableView.estimatedRowHeight = 500
         tableView.rowHeight = UITableViewAutomaticDimension
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,7 +30,7 @@ class TweetsTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return 1
     }
 
 

@@ -13,6 +13,10 @@
 		32DECB671B933523000CAD11 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DECB661B933523000CAD11 /* Tweet.swift */; };
 		32DECB691B93353D000CAD11 /* TweetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DECB681B93353D000CAD11 /* TweetManager.swift */; };
 		32DECB6C1B9335C3000CAD11 /* NewTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DECB6B1B9335C3000CAD11 /* NewTweetViewController.swift */; };
+		32DECB6E1B933A1B000CAD11 /* rake.png in Resources */ = {isa = PBXBuildFile; fileRef = 32DECB6D1B933A1B000CAD11 /* rake.png */; };
+		32DECB711B933A8A000CAD11 /* profile_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 32DECB701B933A8A000CAD11 /* profile_icon.png */; };
+		32DECB751B934FE9000CAD11 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 32DECB741B934FE9000CAD11 /* LaunchScreen.png */; };
+		32DECB771B935397000CAD11 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32DECB761B935397000CAD11 /* icon@2x.png */; };
 		32E01BCA1B932E17007C25AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E01BC91B932E17007C25AF /* AppDelegate.swift */; };
 		32E01BCF1B932E17007C25AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E01BCD1B932E17007C25AF /* Main.storyboard */; };
 		32E01BD11B932E17007C25AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32E01BD01B932E17007C25AF /* Images.xcassets */; };
@@ -50,6 +54,10 @@
 		32DECB661B933523000CAD11 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		32DECB681B93353D000CAD11 /* TweetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetManager.swift; sourceTree = "<group>"; };
 		32DECB6B1B9335C3000CAD11 /* NewTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTweetViewController.swift; sourceTree = "<group>"; };
+		32DECB6D1B933A1B000CAD11 /* rake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rake.png; sourceTree = "<group>"; };
+		32DECB701B933A8A000CAD11 /* profile_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_icon.png; sourceTree = "<group>"; };
+		32DECB741B934FE9000CAD11 /* LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreen.png; sourceTree = "<group>"; };
+		32DECB761B935397000CAD11 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		32E01BC41B932E17007C25AF /* Pictweet-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pictweet-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32E01BC81B932E17007C25AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32E01BC91B932E17007C25AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,12 +140,24 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		32DECB6F1B933A24000CAD11 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				32DECB761B935397000CAD11 /* icon@2x.png */,
+				32DECB741B934FE9000CAD11 /* LaunchScreen.png */,
+				32DECB701B933A8A000CAD11 /* profile_icon.png */,
+				32DECB6D1B933A1B000CAD11 /* rake.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		32E01BBB1B932E17007C25AF = {
 			isa = PBXGroup;
 			children = (
 				32E01BC61B932E17007C25AF /* Pictweet-iOS */,
 				32E01BDC1B932E18007C25AF /* Pictweet-iOSTests */,
 				32E01BC51B932E17007C25AF /* Products */,
+				32DECB6F1B933A24000CAD11 /* Images */,
 				32E01BEB1B932F32007C25AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -292,8 +312,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				32E01BCF1B932E17007C25AF /* Main.storyboard in Resources */,
+				32DECB771B935397000CAD11 /* icon@2x.png in Resources */,
+				32DECB6E1B933A1B000CAD11 /* rake.png in Resources */,
 				32E01BD41B932E17007C25AF /* LaunchScreen.xib in Resources */,
 				32E01BD11B932E17007C25AF /* Images.xcassets in Resources */,
+				32DECB711B933A8A000CAD11 /* profile_icon.png in Resources */,
+				32DECB751B934FE9000CAD11 /* LaunchScreen.png in Resources */,
 				32DECB641B933505000CAD11 /* TweetTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

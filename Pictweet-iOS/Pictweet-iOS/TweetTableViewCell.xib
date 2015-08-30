@@ -1,18 +1,96 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="TweetTableViewCell" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="513" id="KGk-i7-Jjw" customClass="TweetTableViewCell" customModule="Pictweet_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="513"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="RWl-dN-eSb">
+                        <rect key="frame" x="13" y="8" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="HlP-zg-4ib"/>
+                            <constraint firstAttribute="height" constant="40" id="PYr-HP-BJk"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kinopontas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQn-TY-Xm0">
+                        <rect key="frame" x="61" y="17" width="196" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="26e-jP-rL3"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="15"/>
+                        <color key="textColor" red="0.27450980390000002" green="0.27450980390000002" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nov 21" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7s-4v-IV3">
+                        <rect key="frame" x="265" y="17" width="97" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="XFN-o9-ayu"/>
+                            <constraint firstAttribute="width" constant="97" id="YSe-a4-y9R"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="15"/>
+                        <color key="textColor" red="0.27450980390000002" green="0.27450980390000002" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rake.png" translatesAutoresizingMaskIntoConstraints="NO" id="EYY-3W-goI">
+                        <rect key="frame" x="5" y="56" width="365" height="359"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="359" id="PKi-sj-Afd"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Kl-sX-hSD">
+                        <rect key="frame" x="13" y="423" width="349" height="74"/>
+                        <string key="text">Night time sharpens, heightens each sensation
+Darkness stirs and wakes imagination
+Silently the senses abandon their defenses
+
+Slowly, gently night unfurls it's splendour
+Grasp it, sense it, tremulous and tender
+Turn your face away from the garish light of day
+Turn your thoughts away from cold unfeeling light
+And listen to the music of the night</string>
+                        <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="15"/>
+                        <color key="textColor" red="0.27450980390000002" green="0.27450980390000002" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="EYY-3W-goI" firstAttribute="top" secondItem="RWl-dN-eSb" secondAttribute="bottom" constant="8" id="2lj-ZZ-0Xp"/>
+                    <constraint firstItem="EYY-3W-goI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="BLp-sG-Imo"/>
+                    <constraint firstAttribute="bottom" secondItem="4Kl-sX-hSD" secondAttribute="bottom" constant="15" id="O6b-Kx-6eV"/>
+                    <constraint firstItem="S7s-4v-IV3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="Poe-ug-aLX"/>
+                    <constraint firstAttribute="trailing" secondItem="S7s-4v-IV3" secondAttribute="trailing" constant="13" id="Rqz-XZ-bf7"/>
+                    <constraint firstAttribute="trailing" secondItem="4Kl-sX-hSD" secondAttribute="trailing" constant="13" id="TdY-0k-LXn"/>
+                    <constraint firstItem="RWl-dN-eSb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="bs3-OI-raP"/>
+                    <constraint firstItem="4Kl-sX-hSD" firstAttribute="top" secondItem="EYY-3W-goI" secondAttribute="bottom" constant="8" id="dnW-oe-QNl"/>
+                    <constraint firstItem="eQn-TY-Xm0" firstAttribute="leading" secondItem="RWl-dN-eSb" secondAttribute="trailing" constant="8" id="f4W-yr-IOk"/>
+                    <constraint firstAttribute="trailing" secondItem="EYY-3W-goI" secondAttribute="trailing" constant="5" id="nG9-v8-qap"/>
+                    <constraint firstItem="RWl-dN-eSb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="nf3-bI-ilX"/>
+                    <constraint firstItem="4Kl-sX-hSD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="o9c-4z-mPr"/>
+                    <constraint firstItem="S7s-4v-IV3" firstAttribute="leading" secondItem="eQn-TY-Xm0" secondAttribute="trailing" constant="8" id="rEb-xA-ksi"/>
+                    <constraint firstItem="eQn-TY-Xm0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="9" id="x5Z-Ys-lJ2"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="nameLabel" destination="eQn-TY-Xm0" id="8Nf-w9-vhj"/>
+                <outlet property="profileIconImageView" destination="RWl-dN-eSb" id="cdu-4Z-7FM"/>
+                <outlet property="timeLabel" destination="S7s-4v-IV3" id="HJi-T0-y5o"/>
+                <outlet property="tweetImageView" destination="EYY-3W-goI" id="N4e-UL-kbz"/>
+                <outlet property="tweetLabel" destination="4Kl-sX-hSD" id="dhB-My-jhd"/>
+            </connections>
+            <point key="canvasLocation" x="244.5" y="345.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="profile_icon.png" width="1382" height="1308"/>
+        <image name="rake.png" width="1582" height="1150"/>
+    </resources>
 </document>

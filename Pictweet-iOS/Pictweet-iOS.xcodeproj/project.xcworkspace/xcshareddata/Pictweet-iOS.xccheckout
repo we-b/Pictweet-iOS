@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>8D7C8740-FE34-46A6-B0D6-AA4447F40DBA</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Pictweet-iOS</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>D8CCF9E14AA1F369D986E4E5C688BE20543D31CE</key>
 		<string>github.com:we-b/Pictweet-iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Pictweet-iOS/Pictweet-iOS.xcodeproj/project.xcworkspace</string>
+	<string>Pictweet-iOS/Pictweet-iOS.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>D8CCF9E14AA1F369D986E4E5C688BE20543D31CE</key>

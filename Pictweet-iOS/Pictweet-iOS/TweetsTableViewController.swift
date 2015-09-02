@@ -18,6 +18,12 @@ class TweetsTableViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "NEW", style: UIBarButtonItemStyle.Plain, target: self, action: "modalNewTweetTableViewController")
+
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -30,7 +36,7 @@ class TweetsTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 5
     }
 
 
@@ -39,6 +45,9 @@ class TweetsTableViewController: UITableViewController {
         return cell
     }
 
+    func modalNewTweetTableViewController() {
+        performSegueWithIdentifier("modalNewTweetTableViewController", sender: self)
+    }
 
     /*
     // Override to support conditional editing of the table view.

@@ -18,20 +18,16 @@ class TweetTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        profileIconImageView.layer.cornerRadius = profileIconImageView.frame.width / 2
-        setImageView(profileIconImageView)
-        setImageView(tweetImageView)
+        profileIconImageView.makeCircle()
+        profileIconImageView.setContentMode()
+        tweetImageView.setContentMode()
+     
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }
-    
-    func setImageView(imageView: UIImageView) {
-        imageView.layer.masksToBounds = true
-        imageView.contentMode = UIViewContentMode.ScaleAspectFill
     }
     
 }

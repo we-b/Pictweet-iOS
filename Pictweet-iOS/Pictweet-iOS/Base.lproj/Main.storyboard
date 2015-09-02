@@ -28,7 +28,7 @@
                     <navigationItem key="navigationItem" title="PICTWEET" id="mPv-kN-1E1"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <segue destination="Ox9-uL-8gd" kind="presentation" id="sBv-iP-g0P"/>
+                        <segue destination="YwP-p6-RZO" kind="presentation" identifier="modalNewTweetTableViewController" id="FmZ-NB-NP5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wmb-RR-5gw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -36,24 +36,63 @@
             <point key="canvasLocation" x="831.5" y="261.5"/>
         </scene>
         <!--PREVIEW-->
-        <scene sceneID="Xd0-rb-dmS">
+        <scene sceneID="b1J-bx-yMs">
             <objects>
-                <viewController id="3GQ-e2-M8D" customClass="NewTweetViewController" customModule="Pictweet_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Qcq-0K-o3W" customClass="NewTweetViewController" customModule="Pictweet_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="m5j-xf-38q"/>
-                        <viewControllerLayoutGuide type="bottom" id="ypj-aD-e4L"/>
+                        <viewControllerLayoutGuide type="top" id="li2-OO-3eV"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kkw-qx-eih"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="EDo-zx-tkR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                    <view key="view" contentMode="scaleToFill" id="Dd4-x9-X7i">
+                        <rect key="frame" x="0.0" y="64" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="kinopontas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXM-ww-vSe">
+                                <rect key="frame" x="64" y="81" width="295" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jug-GO-tne">
+                                <rect key="frame" x="16" y="72" width="40" height="40"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5fU-pH-hSB">
+                                <rect key="frame" x="16" y="127" width="343" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hni-8O-bMd">
+                                <rect key="frame" x="16" y="269" width="343" height="249"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOo-NB-jIz">
+                                <rect key="frame" x="22" y="275" width="106" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.19215686269999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="画像を選択">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapImageSelectButton:" destination="Qcq-0K-o3W" eventType="touchUpInside" id="XDv-Oc-EkE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="PREVIEW" id="8kh-aY-XMq"/>
+                    <navigationItem key="navigationItem" title="PREVIEW" id="Dxm-F0-0Yc"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="imageSelectButton" destination="VOo-NB-jIz" id="gd3-oI-y9B"/>
+                        <outlet property="nameLabel" destination="iXM-ww-vSe" id="dfu-4A-mTv"/>
+                        <outlet property="profileIconLabel" destination="Jug-GO-tne" id="S42-nm-wfp"/>
+                        <outlet property="tweetImageView" destination="hni-8O-bMd" id="rTf-YA-b7Y"/>
+                        <outlet property="tweetTextView" destination="5fU-pH-hSB" id="o7W-XI-bzK"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cFg-RO-3mk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hEE-ye-6td" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1299.5" y="1049.5"/>
+            <point key="canvasLocation" x="1303.5" y="1061.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gGM-ct-15h">
@@ -79,27 +118,27 @@
             <point key="canvasLocation" x="349" y="262"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="Zwx-vO-gIg">
+        <scene sceneID="jm6-qs-oM9">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ox9-uL-8gd" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Rj-VM-2hl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YwP-p6-RZO" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="dXw-9h-bzc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="X0Y-Ad-j4P">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.0" green="0.19215686269999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="3GQ-e2-M8D" kind="relationship" relationship="rootViewController" id="6Tr-KS-6hk"/>
+                        <segue destination="Qcq-0K-o3W" kind="relationship" relationship="rootViewController" id="mJF-G6-7Wp"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fG1-bu-fut" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="831.5" y="1049.5"/>
+            <point key="canvasLocation" x="831.5" y="1061.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="profile_icon.png" width="1382" height="1308"/>
+    </resources>
 </document>

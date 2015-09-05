@@ -18,6 +18,7 @@
 		32DECB771B935397000CAD11 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32DECB761B935397000CAD11 /* icon@2x.png */; };
 		32DECB7F1B9362F6000CAD11 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DECB7E1B9362F6000CAD11 /* UIImageView+Extension.swift */; };
 		32DECB841B9469EE000CAD11 /* NewTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DECB831B9469EE000CAD11 /* NewTweetViewController.swift */; };
+		32DECB881B9ACAC6000CAD11 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DECB871B9ACAC6000CAD11 /* UIImage+Extension.swift */; };
 		32E01BCA1B932E17007C25AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E01BC91B932E17007C25AF /* AppDelegate.swift */; };
 		32E01BCF1B932E17007C25AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E01BCD1B932E17007C25AF /* Main.storyboard */; };
 		32E01BD11B932E17007C25AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32E01BD01B932E17007C25AF /* Images.xcassets */; };
@@ -60,6 +61,7 @@
 		32DECB761B935397000CAD11 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		32DECB7E1B9362F6000CAD11 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		32DECB831B9469EE000CAD11 /* NewTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTweetViewController.swift; sourceTree = "<group>"; };
+		32DECB871B9ACAC6000CAD11 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		32E01BC41B932E17007C25AF /* Pictweet-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pictweet-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32E01BC81B932E17007C25AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32E01BC91B932E17007C25AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				32DECB7E1B9362F6000CAD11 /* UIImageView+Extension.swift */,
+				32DECB871B9ACAC6000CAD11 /* UIImage+Extension.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				32E01BCA1B932E17007C25AF /* AppDelegate.swift in Sources */,
 				32DECB691B93353D000CAD11 /* TweetManager.swift in Sources */,
 				32DECB841B9469EE000CAD11 /* NewTweetViewController.swift in Sources */,
+				32DECB881B9ACAC6000CAD11 /* UIImage+Extension.swift in Sources */,
 				32DECB7F1B9362F6000CAD11 /* UIImageView+Extension.swift in Sources */,
 				32DECB5D1B9334AE000CAD11 /* TweetsTableViewController.swift in Sources */,
 				32DECB631B933505000CAD11 /* TweetTableViewCell.swift in Sources */,

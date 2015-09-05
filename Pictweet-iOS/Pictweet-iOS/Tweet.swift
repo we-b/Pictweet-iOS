@@ -7,7 +7,29 @@
 //
 
 import UIKit
+import Parse
 
 class Tweet: NSObject {
-   
+    var text: String!
+    var image: UIImage?
+    
+    init(text: String, image: UIImage) {
+        self.text = text
+        self.image = image
+    }
+    
+    func saveTweet(callback: () -> Void ) {
+        let tweetsObject = PFObject(className: "tweets")
+        tweetsObject["text"] = text
+        tweetsObject["image"] = image!.convertToPFFile()
+        println("kkkkkkkkkkkkkkk")
+        tweetsObject.saveInBackgroundWithBlock { (success, error) -> Void in
+            println("=============")
+            println(error)
+            if success {
+                println("Tweet has been saved")
+                callback()
+            }
+        }
+    }
 }

@@ -9,5 +9,6 @@
 import UIKit
 
 class TweetManager: NSObject {
-   
+    static let sharedInstanse = TweetManager()
+    var tweets: Array<Tweet> = []
 }

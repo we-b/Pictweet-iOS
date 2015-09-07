@@ -7,7 +7,37 @@
 //
 
 import UIKit
+import Parse
+
+@objc protocol TweetManagerDelegate {
+    func didFinishedFetchTweets()
+}
 
 class TweetManager: NSObject {
-   
+    static let sharedInstanse = TweetManager()
+    var tweets: Array<Tweet> = []
+    weak var delegate: TweetManagerDelegate?
+    
+    func fetchTweets() {
+        let query = PFQuery(className: "tweets")
+        query.orderByDescending("createdAt")
+        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            if error == nil {
+                self.tweets = []
+                let tweets = objects as! Array<PFObject>
+                for tweet in tweets {
+                    let text      = tweet["text"] as! String
+                    let imageFile = tweet["image"] as! PFFile
+                    let tweet = Tweet(text: text, image: nil)
+                    self.tweets.append(tweet)
+                    imageFile.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
+                        if error == nil {
+                            tweet.image = UIImage(data: imageData!)
+                            self.delegate?.didFinishedFetchTweets()
+                        }
+                    })
+                }
+            }
+        }
+    }
 }

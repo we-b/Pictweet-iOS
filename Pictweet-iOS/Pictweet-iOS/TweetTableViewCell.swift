@@ -21,7 +21,6 @@ class TweetTableViewCell: UITableViewCell {
         profileIconImageView.makeCircle()
         profileIconImageView.setContentMode()
         tweetImageView.setContentMode()
-     
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

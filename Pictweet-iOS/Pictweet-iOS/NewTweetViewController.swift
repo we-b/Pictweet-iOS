@@ -8,25 +8,33 @@
 
 import UIKit
 
-class NewTweetViewController: UIViewController {
+class NewTweetViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var tweetImageView: UIImageView!
     @IBOutlet weak var imageSelectButton: UIButton!
     @IBOutlet weak var tweetTextView: UITextView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileIconLabel: UIImageView!
+    
+    //イメージピッカー(カメララロール)
+    let imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         imageSelectButton.layer.cornerRadius = 5
         profileIconLabel.makeCircle()
+        tweetImageView.setContentMode()
         
         let gesture = UITapGestureRecognizer(target: self, action: "tapView:")
         view.addGestureRecognizer(gesture)
+        
+        imagePicker.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "＜", style: UIBarButtonItemStyle.Plain, target: self, action: "backToTweetsViewController")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "TWEET", style: UIBarButtonItemStyle.Plain, target: self, action: "saveTweet")
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,29 +42,40 @@ class NewTweetViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    func backToTweetsViewController() {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
+    //カメラロールアクセスを記述
     @IBAction func tapImageSelectButton(sender: UIButton) {
-        //カメラロールアクセスを記述
+        self.imagePicker.sourceType = .PhotoLibrary
+        self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        tweetImageView.image = image
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    //save tweet
+    func saveTweet() {
+        let text = tweetTextView.text
+        let image = tweetImageView.image
+        if text.isEmpty || image == nil {
+            return
+        }
+        let tweet = Tweet(text: text, image: image!)
+        let callback = {() -> Void in
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        tweet.saveTweet(callback)
+    }
+    
+    //delegate
     func tapView(sender: UITapGestureRecognizer) {
         tweetTextView.resignFirstResponder()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    // navigation
+    func backToTweetsViewController() {
+        dismissViewControllerAnimated(true, completion: nil)
     }
-    */
-
 }
 
 

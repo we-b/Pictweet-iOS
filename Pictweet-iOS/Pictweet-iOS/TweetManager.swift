@@ -30,7 +30,6 @@ class TweetManager: NSObject {
                     let imageFile = tweet["image"] as! PFFile
                     let tweet = Tweet(text: text, image: nil)
                     self.tweets.append(tweet)
-                    self.delegate?.didFinishedFetchTweets()
                     imageFile.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
                         if error == nil {
                             tweet.image = UIImage(data: imageData!)

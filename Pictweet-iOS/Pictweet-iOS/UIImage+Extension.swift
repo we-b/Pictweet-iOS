@@ -14,7 +14,7 @@ extension UIImage {
     
     func convertToPFFile() -> PFFile {
         let imageData = UIImagePNGRepresentation(self)
-        let imageFile = PFFile(name: "imageFile", data: imageData)
+        let imageFile = PFFile(name: "imageFile.png", data: imageData)
         return imageFile
     }
     

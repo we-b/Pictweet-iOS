@@ -20,8 +20,10 @@ class NewTweetViewController: UIViewController, UIImagePickerControllerDelegate,
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         imageSelectButton.layer.cornerRadius = 5
         profileIconLabel.makeCircle()
+        tweetImageView.setContentMode()
         
         let gesture = UITapGestureRecognizer(target: self, action: "tapView:")
         view.addGestureRecognizer(gesture)
@@ -70,7 +72,6 @@ class NewTweetViewController: UIViewController, UIImagePickerControllerDelegate,
         tweetTextView.resignFirstResponder()
     }
     
-
     // navigation
     func backToTweetsViewController() {
         dismissViewControllerAnimated(true, completion: nil)

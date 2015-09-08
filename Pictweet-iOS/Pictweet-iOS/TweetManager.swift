@@ -15,7 +15,7 @@ import Parse
 
 class TweetManager: NSObject {
     static let sharedInstanse = TweetManager()
-    var tweets: Array<Tweet> = []
+    var tweets = [Tweet]()
     weak var delegate: TweetManagerDelegate?
     
     func fetchTweets() {
@@ -24,7 +24,7 @@ class TweetManager: NSObject {
         query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             if error == nil {
                 self.tweets = []
-                let tweets = objects as! Array<PFObject>
+                let tweets = objects as! [PFObject]
                 for tweet in tweets {
                     let text      = tweet["text"] as! String
                     let imageFile = tweet["image"] as! PFFile

@@ -10,8 +10,8 @@ import UIKit
 import Parse
 
 class User: NSObject {
-    var name: String!
-    var password: String!
+    var name: String
+    var password: String
     
     init(name: String, password: String) {
         self.name     = name

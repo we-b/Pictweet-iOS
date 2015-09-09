@@ -61,7 +61,7 @@ class NewTweetViewController: UIViewController, UIImagePickerControllerDelegate,
             return
         }
         let tweet = Tweet(text: text, image: image!)
-        let callback = {() -> Void in
+        let callback = { () in
             self.dismissViewControllerAnimated(true, completion: nil)
         }
         tweet.saveTweet(callback)

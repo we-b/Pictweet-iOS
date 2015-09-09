@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		324FA1171B9D944A00229332 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324FA1161B9D944A00229332 /* LoginViewController.swift */; };
+		324FA1191B9D9A6300229332 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324FA1181B9D9A6300229332 /* User.swift */; };
 		32DECB5D1B9334AE000CAD11 /* TweetsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DECB5C1B9334AE000CAD11 /* TweetsTableViewController.swift */; };
 		32DECB631B933505000CAD11 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DECB611B933505000CAD11 /* TweetTableViewCell.swift */; };
 		32DECB641B933505000CAD11 /* TweetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32DECB621B933505000CAD11 /* TweetTableViewCell.xib */; };
@@ -50,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		324FA1161B9D944A00229332 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		324FA1181B9D9A6300229332 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		32DECB5C1B9334AE000CAD11 /* TweetsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsTableViewController.swift; sourceTree = "<group>"; };
 		32DECB611B933505000CAD11 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 		32DECB621B933505000CAD11 /* TweetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetTableViewCell.xib; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 			children = (
 				32DECB5C1B9334AE000CAD11 /* TweetsTableViewController.swift */,
 				32DECB831B9469EE000CAD11 /* NewTweetViewController.swift */,
+				324FA1161B9D944A00229332 /* LoginViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 			children = (
 				32DECB681B93353D000CAD11 /* TweetManager.swift */,
 				32DECB661B933523000CAD11 /* Tweet.swift */,
+				324FA1181B9D9A6300229332 /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -289,6 +295,7 @@
 		32E01BBC1B932E17007C25AF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "matsushita keita";
 				TargetAttributes = {
@@ -350,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				324FA1171B9D944A00229332 /* LoginViewController.swift in Sources */,
 				32E01BCA1B932E17007C25AF /* AppDelegate.swift in Sources */,
 				32DECB691B93353D000CAD11 /* TweetManager.swift in Sources */,
 				32DECB841B9469EE000CAD11 /* NewTweetViewController.swift in Sources */,
@@ -357,6 +365,7 @@
 				32DECB7F1B9362F6000CAD11 /* UIImageView+Extension.swift in Sources */,
 				32DECB5D1B9334AE000CAD11 /* TweetsTableViewController.swift in Sources */,
 				32DECB631B933505000CAD11 /* TweetTableViewCell.swift in Sources */,
+				324FA1191B9D9A6300229332 /* User.swift in Sources */,
 				32DECB671B933523000CAD11 /* Tweet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

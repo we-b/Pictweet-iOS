@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class TweetsTableViewController: UITableViewController, TweetManagerDelegate {
 
@@ -23,8 +24,15 @@ class TweetsTableViewController: UITableViewController, TweetManagerDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "NEW", style: UIBarButtonItemStyle.Plain, target: self, action: "modalNewTweetTableViewController")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "SIGN OUT", style: UIBarButtonItemStyle.Plain, target: self, action: "modalLoginTableViewController")
         tweetManager.fetchTweets()
-
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if PFUser.currentUser() == nil {
+            performSegueWithIdentifier("modalLoginTableViewController", sender: self)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,13 +56,21 @@ class TweetsTableViewController: UITableViewController, TweetManagerDelegate {
         cell.tweetImageView.image = tweet.image
         return cell
     }
+    
+    //delegate
+    func didFinishedFetchTweets() {
+        tableView.reloadData()
+    }
 
+    //segue
     func modalNewTweetTableViewController() {
         performSegueWithIdentifier("modalNewTweetTableViewController", sender: self)
     }
-
-    func didFinishedFetchTweets() {
-        println("finished fetch tweets")
-        tableView.reloadData()
+    
+    func modalLoginTableViewController() {
+        PFUser.logOut()
+        performSegueWithIdentifier("modalLoginTableViewController", sender: self)
     }
+
+
 }

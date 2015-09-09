@@ -11,11 +11,15 @@ import Parse
 
 class User: NSObject {
     var name: String
-    var password: String
+    var password: String?
     
     init(name: String, password: String) {
         self.name     = name
         self.password = password
+    }
+    
+    init(name: String) {
+        self.name = name
     }
     
     func signUp(callback: (message: String?) -> Void) {
@@ -32,7 +36,7 @@ class User: NSObject {
     }
     
     func login(callback: (message: String?) -> Void) {
-        PFUser.logInWithUsernameInBackground(self.name, password: self.password) { (user, error) -> Void in
+        PFUser.logInWithUsernameInBackground(self.name, password: self.password!) { (user, error) -> Void in
             if error == nil {
                 callback(message: nil)
             } else {

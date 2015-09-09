@@ -25,11 +25,24 @@ class TweetManager: NSObject {
             if error == nil {
                 self.tweets = []
                 let tweets = objects as! [PFObject]
-                for tweet in tweets {
-                    let text      = tweet["text"] as! String
-                    let imageFile = tweet["image"] as! PFFile
+                for tweetObject in tweets {
+                    let text      = tweetObject["text"] as! String
+                    let imageFile = tweetObject["image"] as! PFFile
                     let tweet = Tweet(text: text, image: nil)
                     self.tweets.append(tweet)
+                    
+                    //tweetしたuserを取得
+                    let relation = tweetObject.relationForKey("user")
+                    relation.query()?.getFirstObjectInBackgroundWithBlock({ (object, error) -> Void in
+                        if error == nil {
+                            let userObject = object as! PFUser
+                            let user = User(name: userObject.username!)
+                            tweet.user = user
+                            self.delegate?.didFinishedFetchTweets()
+                        }
+                    })
+                
+                    //tweetの画像データを取得
                     imageFile.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
                         if error == nil {
                             tweet.image = UIImage(data: imageData!)

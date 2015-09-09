@@ -10,8 +10,9 @@ import UIKit
 import Parse
 
 class Tweet: NSObject {
-    var text: String!
+    var text: String
     var image: UIImage?
+    var user: User?
     
     init(text: String, image: UIImage?) {
         self.text = text
@@ -22,6 +23,10 @@ class Tweet: NSObject {
         let tweetsObject = PFObject(className: "tweets")
         tweetsObject["text"] = text
         tweetsObject["image"] = image!.convertToPFFile()
+        
+        let relation = tweetsObject.relationForKey("user") //PFRelation
+        relation.addObject(PFUser.currentUser()!)
+        
         tweetsObject.saveInBackgroundWithBlock { (success, error) -> Void in
             if success {
                 println("Tweet has been saved")

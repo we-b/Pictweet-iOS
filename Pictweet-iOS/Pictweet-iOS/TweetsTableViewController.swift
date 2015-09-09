@@ -54,6 +54,7 @@ class TweetsTableViewController: UITableViewController, TweetManagerDelegate {
         let tweet = tweetManager.tweets[indexPath.row]
         cell.tweetLabel.text      = tweet.text
         cell.tweetImageView.image = tweet.image
+        cell.nameLabel.text = tweet.user?.name
         return cell
     }
     

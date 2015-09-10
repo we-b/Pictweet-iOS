@@ -9,13 +9,27 @@
 import UIKit
 import Parse
 
+@objc protocol TweetDelegate {
+    func tweetdDidFinishedFetch()
+}
+
 class Tweet: NSObject {
+    
     var text: String
     var image: UIImage?
     var user: User?
+    weak var delegate: TweetDelegate?
+
+    convenience init(attribute: PFObject) {
+        let text      = attribute["text"] as! String
+        let imageFile = attribute["image"] as! PFFile
+        self.init(text: text, image: nil)
+        fetchTweetedUser(attribute)
+        fetchTweetImage(imageFile)
+    }
     
     init(text: String, image: UIImage?) {
-        self.text = text
+        self.text  = text
         self.image = image
     }
     
@@ -23,7 +37,7 @@ class Tweet: NSObject {
         let tweetsObject = PFObject(className: "tweets")
         tweetsObject["text"] = text
         tweetsObject["image"] = image!.convertToPFFile()
-        
+        tweetsObject["user_id"] = PFUser.currentUser()?.objectId
         let relation = tweetsObject.relationForKey("user") //PFRelation
         relation.addObject(PFUser.currentUser()!)
         
@@ -33,5 +47,26 @@ class Tweet: NSObject {
                 callback()
             }
         }
+    }
+    
+    func fetchTweetedUser(tweetObject: PFObject) {
+        let relation = tweetObject.relationForKey("user")
+        relation.query()?.getFirstObjectInBackgroundWithBlock({ (object, error) -> Void in
+            if error == nil {
+                let userObject = object as! PFUser
+                let user = User(name: userObject.username!)
+                self.user = user
+                self.delegate?.tweetdDidFinishedFetch()
+            }
+        })
+    }
+    
+    func fetchTweetImage(imageFile: PFFile) {
+        imageFile.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
+            if error == nil {
+                self.image = UIImage(data: imageData!)
+                self.delegate?.tweetdDidFinishedFetch()
+            }
+        })
     }
 }

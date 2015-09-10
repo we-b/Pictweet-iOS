@@ -14,6 +14,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
 
+    let tweetManager = TweetManager.sharedInstanse
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,6 +37,7 @@ class LoginViewController: UIViewController {
         let user = User(name: nameTextField.text, password: passwordTextField.text)
         user.login { (message) in
             if message == nil {
+                self.tweetManager.tweetsMakeEmpty()
                 self.dismissViewControllerAnimated(true, completion: nil)
             } else {
                 self.showAlert(message)
@@ -51,6 +54,7 @@ class LoginViewController: UIViewController {
         let user = User(name: nameTextField.text, password: passwordTextField.text)
         user.signUp { (message) in
             if message == nil {
+                self.tweetManager.tweetsMakeEmpty()
                 self.dismissViewControllerAnimated(true, completion: nil)
             } else {
                 self.showAlert(message)

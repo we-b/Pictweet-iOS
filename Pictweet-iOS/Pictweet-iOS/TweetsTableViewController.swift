@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class TweetsTableViewController: UITableViewController, TweetManagerDelegate {
+class TweetsTableViewController: UITableViewController, TweetDelegate, TweetManagerDelegate {
 
     let tweetManager = TweetManager.sharedInstanse
     
@@ -52,13 +52,19 @@ class TweetsTableViewController: UITableViewController, TweetManagerDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetTableViewCell", forIndexPath: indexPath) as! TweetTableViewCell
         let tweet = tweetManager.tweets[indexPath.row]
+        tweet.delegate = self
         cell.tweetLabel.text      = tweet.text
         cell.tweetImageView.image = tweet.image
+        cell.nameLabel.text = tweet.user?.name
         return cell
     }
     
     //delegate
-    func didFinishedFetchTweets() {
+    func didFinishFetchingTweets() {
+        tableView.reloadData()
+    }
+    
+    func didFinishFetchingTweetsBy(tweetManager: TweetManager) {
         tableView.reloadData()
     }
 

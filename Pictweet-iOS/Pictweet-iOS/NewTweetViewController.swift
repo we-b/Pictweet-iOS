@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class NewTweetViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var tweetImageView: UIImageView!
@@ -17,6 +18,7 @@ class NewTweetViewController: UIViewController, UIImagePickerControllerDelegate,
     
     //イメージピッカー(カメララロール)
     let imagePicker = UIImagePickerController()
+    let currentUser = PFUser.currentUser()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,9 @@ class NewTweetViewController: UIViewController, UIImagePickerControllerDelegate,
         view.addGestureRecognizer(gesture)
         
         imagePicker.delegate = self
+        
+        //mark
+        nameLabel.text = currentUser?.username
     }
     
     override func viewWillAppear(animated: Bool) {

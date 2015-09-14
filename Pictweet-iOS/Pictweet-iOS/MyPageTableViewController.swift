@@ -69,11 +69,11 @@ class MyPageTableViewController: UITableViewController, TweetDelegate, TweetMana
     }
     
     //delegate
-    func tweetdDidFinishedFetch() {
+    func didFinishFetchingTweets() {
         tableView.reloadData()
     }
     
-    func tweetManagerDidFinishedFetch() {
+    func didFinishFetchingTweetsBy(tweetManager: TweetManager) {
         tableView.reloadData()
     }
 }

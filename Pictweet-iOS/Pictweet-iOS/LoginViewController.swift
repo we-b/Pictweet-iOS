@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
         let user = User(name: nameTextField.text, password: passwordTextField.text)
         user.login { (message) in
             if message == nil {
-                self.tweetManager.tweetsMakeEmpty()
+                self.tweetManager.emptyTweets()
                 self.dismissViewControllerAnimated(true, completion: nil)
             } else {
                 self.showAlert(message)
@@ -54,7 +54,7 @@ class LoginViewController: UIViewController {
         let user = User(name: nameTextField.text, password: passwordTextField.text)
         user.signUp { (message) in
             if message == nil {
-                self.tweetManager.tweetsMakeEmpty()
+                self.tweetManager.emptyTweets()
                 self.dismissViewControllerAnimated(true, completion: nil)
             } else {
                 self.showAlert(message)

@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 @objc protocol TweetManagerDelegate {
-    func tweetManagerDidFinishedFetch()
+    func didFinishFetchingTweetsBy(tweetManager: TweetManager)
 }
 
 class TweetManager: NSObject {
@@ -30,7 +30,7 @@ class TweetManager: NSObject {
                 for tweetObject in tweets {
                     let tweet = Tweet(attribute: tweetObject)
                     self.tweets.append(tweet)
-                    self.delegate?.tweetManagerDidFinishedFetch()
+                    self.delegate?.didFinishFetchingTweetsBy(self)
                 }
             }
         }
@@ -47,13 +47,13 @@ class TweetManager: NSObject {
                 for tweetObject in tweets {
                     let tweet = Tweet(attribute: tweetObject)
                     self.currentUserTweets.append(tweet)
-                    self.delegate?.tweetManagerDidFinishedFetch()
+                    self.delegate?.didFinishFetchingTweetsBy(self)
                 }
             }
         }
     }
     
-    func tweetsMakeEmpty() {
+    func emptyTweets() {
         tweets = []
         currentUserTweets = []
     }

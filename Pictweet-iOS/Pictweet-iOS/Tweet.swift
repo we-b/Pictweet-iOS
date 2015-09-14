@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 @objc protocol TweetDelegate {
-    func tweetdDidFinishedFetch()
+    func didFinishFetchingTweets()
 }
 
 class Tweet: NSObject {
@@ -56,7 +56,7 @@ class Tweet: NSObject {
                 let userObject = object as! PFUser
                 let user = User(name: userObject.username!)
                 self.user = user
-                self.delegate?.tweetdDidFinishedFetch()
+                self.delegate?.didFinishFetchingTweets()
             }
         })
     }
@@ -65,7 +65,7 @@ class Tweet: NSObject {
         imageFile.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
             if error == nil {
                 self.image = UIImage(data: imageData!)
-                self.delegate?.tweetdDidFinishedFetch()
+                self.delegate?.didFinishFetchingTweets()
             }
         })
     }

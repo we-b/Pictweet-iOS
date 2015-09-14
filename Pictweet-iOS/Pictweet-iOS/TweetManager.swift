@@ -10,14 +10,12 @@ import UIKit
 import Parse
 
 @objc protocol TweetManagerDelegate {
-    func didFinishFetchingTweetsBy(tweetManager: TweetManager)
+    func didFinishedFetchTweets()
 }
 
 class TweetManager: NSObject {
-    
     static let sharedInstanse = TweetManager()
     var tweets = [Tweet]()
-    var currentUserTweets = [Tweet]()
     weak var delegate: TweetManagerDelegate?
     
     func fetchTweets() {
@@ -27,35 +25,19 @@ class TweetManager: NSObject {
             if error == nil {
                 self.tweets = []
                 let tweets = objects as! [PFObject]
-                for tweetObject in tweets {
-                    let tweet = Tweet(attribute: tweetObject)
+                for tweet in tweets {
+                    let text      = tweet["text"] as! String
+                    let imageFile = tweet["image"] as! PFFile
+                    let tweet = Tweet(text: text, image: nil)
                     self.tweets.append(tweet)
-                    self.delegate?.didFinishFetchingTweetsBy(self)
+                    imageFile.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
+                        if error == nil {
+                            tweet.image = UIImage(data: imageData!)
+                            self.delegate?.didFinishedFetchTweets()
+                        }
+                    })
                 }
             }
         }
-    }
-    
-    func fetchCurrentUserTweets() {
-        let query = PFQuery(className: "tweets")
-        query.orderByDescending("createdAt")
-        query.whereKey("user_id", containsString: PFUser.currentUser()?.objectId)
-        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-            if error == nil {
-                self.currentUserTweets = []
-                let tweets = objects as! [PFObject]
-                for tweetObject in tweets {
-                    let tweet = Tweet(attribute: tweetObject)
-                    self.currentUserTweets.append(tweet)
-                    self.delegate?.didFinishFetchingTweetsBy(self)
-                }
-            }
-        }
-    }
-    
-    func emptyTweets() {
-        tweets = []
-        currentUserTweets = []
     }
 }
-

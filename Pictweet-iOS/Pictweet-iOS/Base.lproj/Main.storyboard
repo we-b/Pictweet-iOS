@@ -54,8 +54,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jug-GO-tne">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jug-GO-tne">
                                 <rect key="frame" x="16" y="72" width="40" height="40"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5fU-pH-hSB">
                                 <rect key="frame" x="16" y="127" width="343" height="128"/>
@@ -86,7 +87,7 @@
                     <connections>
                         <outlet property="imageSelectButton" destination="VOo-NB-jIz" id="gd3-oI-y9B"/>
                         <outlet property="nameLabel" destination="iXM-ww-vSe" id="dfu-4A-mTv"/>
-                        <outlet property="profileIconLabel" destination="Jug-GO-tne" id="S42-nm-wfp"/>
+                        <outlet property="profileIconImageView" destination="Jug-GO-tne" id="mI6-Ry-Zjc"/>
                         <outlet property="tweetImageView" destination="hni-8O-bMd" id="rTf-YA-b7Y"/>
                         <outlet property="tweetTextView" destination="5fU-pH-hSB" id="o7W-XI-bzK"/>
                     </connections>
@@ -380,6 +381,5 @@
     </scenes>
     <resources>
         <image name="noimage.png" width="600" height="600"/>
-        <image name="profile_icon.png" width="1382" height="1308"/>
     </resources>
 </document>

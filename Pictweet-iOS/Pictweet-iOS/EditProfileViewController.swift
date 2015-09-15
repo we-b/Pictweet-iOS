@@ -9,19 +9,20 @@
 import UIKit
 import Parse
 
-class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UserDelegate {
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var selectImageButton: UIButton!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
 
-    let currentUser = PFUser.currentUser()
+    var currentUser: User!
     let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        nameTextField.text = currentUser?.username
+        currentUser = User(attribute: PFUser.currentUser()!)
+        currentUser.delegate = self
+        nameTextField.text = currentUser.name
         editButton.roundCorner()
         profileImageView.makeCircle()
         configureSelectImageButton()
@@ -51,6 +52,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         profileImageView.image = image
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func didFinishUpdateUser() {
+        profileImageView.image = currentUser.image
     }
     
     //MARK - action

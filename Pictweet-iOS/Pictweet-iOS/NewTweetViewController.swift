@@ -9,23 +9,26 @@
 import UIKit
 import Parse
 
-class NewTweetViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class NewTweetViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UserDelegate {
     @IBOutlet weak var tweetImageView: UIImageView!
     @IBOutlet weak var imageSelectButton: UIButton!
     @IBOutlet weak var tweetTextView: UITextView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var profileIconLabel: UIImageView!
+    @IBOutlet weak var profileIconImageView: UIImageView!
     
     //イメージピッカー(カメララロール)
     let imagePicker = UIImagePickerController()
-    let currentUser = PFUser.currentUser()
+    var currentUser: User!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        nameLabel.text = currentUser?.username
+        currentUser = User(attribute: PFUser.currentUser()!)
+        currentUser.delegate = self
+        nameLabel.text = currentUser.name
         imageSelectButton.roundCorner()
-        profileIconLabel.makeCircle()
         tweetImageView.setContentMode()
+        profileIconImageView.makeCircle()
+        profileIconImageView.setContentMode()
         let gesture = UITapGestureRecognizer(target: self, action: "tapView:")
         view.addGestureRecognizer(gesture)
         imagePicker.delegate = self
@@ -33,8 +36,8 @@ class NewTweetViewController: UIViewController, UIImagePickerControllerDelegate,
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "＜", style: UIBarButtonItemStyle.Plain, target: self, action: "backToTweetsViewController")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "TWEET", style: UIBarButtonItemStyle.Plain, target: self, action: "saveTweet")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "＜", style: .Plain, target: self, action: "backToTweetsViewController")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "TWEET", style: .Plain, target: self, action: "saveTweet")
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +54,10 @@ class NewTweetViewController: UIViewController, UIImagePickerControllerDelegate,
     
     func tapView(sender: UITapGestureRecognizer) {
         tweetTextView.resignFirstResponder()
+    }
+    
+    func didFinishUpdateUser() {
+        profileIconImageView.image = currentUser.image
     }
     
     // MARK - action

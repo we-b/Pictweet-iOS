@@ -9,24 +9,26 @@
 import UIKit
 import Parse
 
-class MyPageTableViewController: UITableViewController, TweetDelegate, TweetManagerDelegate {
+class MyPageTableViewController: UITableViewController, TweetDelegate, TweetManagerDelegate, ProfileTableViewCellDelegate, UserDelegate {
 
     let tweetManager = TweetManager.sharedInstanse
+    var currentUser: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.registerNib(UINib(nibName: "ProfileTableViewCell", bundle: nil), forCellReuseIdentifier: "ProfileTableViewCell")
         tableView.registerNib(UINib(nibName: "TweetTableViewCell", bundle: nil), forCellReuseIdentifier: "TweetTableViewCell")
-        
         tableView.estimatedRowHeight = 500
         tableView.rowHeight = UITableViewAutomaticDimension
         tweetManager.delegate = self
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         tweetManager.fetchCurrentUserTweets()
+        currentUser = User(attribute: PFUser.currentUser()!)
+        currentUser.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,8 +56,9 @@ class MyPageTableViewController: UITableViewController, TweetDelegate, TweetMana
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("ProfileTableViewCell", forIndexPath: indexPath) as! ProfileTableViewCell
-            let user = PFUser.currentUser()
-            cell.nameLabel.text = user?.username
+            cell.delegate = self
+            cell.nameLabel.text         = currentUser.name
+            cell.profileImageView.image = currentUser.image
             return cell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("TweetTableViewCell", forIndexPath: indexPath) as! TweetTableViewCell
@@ -63,12 +66,14 @@ class MyPageTableViewController: UITableViewController, TweetDelegate, TweetMana
             tweet.delegate = self
             cell.tweetImageView.image = tweet.image
             cell.tweetLabel.text      = tweet.text
-            cell.nameLabel.text       = tweet.user?.name
+            cell.nameLabel.text       = currentUser.name
+            cell.profileIconImageView.image = currentUser.image
             return cell
         }
     }
     
-    //delegate
+    // MARK - delegate
+    
     func didFinishFetchingTweets() {
         tableView.reloadData()
     }
@@ -76,4 +81,17 @@ class MyPageTableViewController: UITableViewController, TweetDelegate, TweetMana
     func didFinishFetchingTweetsBy(tweetManager: TweetManager) {
         tableView.reloadData()
     }
+    
+    func didFinishUpdateUser() {
+        println("Update!!!!!!!")
+        tableView.reloadData()
+    }
+    
+    //MARK - action
+    
+    func tappedEditButton() {
+        performSegueWithIdentifier("presentEditProfileViewController", sender: nil)
+    }
+
+    
 }

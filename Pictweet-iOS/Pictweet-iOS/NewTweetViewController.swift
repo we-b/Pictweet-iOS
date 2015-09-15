@@ -22,18 +22,13 @@ class NewTweetViewController: UIViewController, UIImagePickerControllerDelegate,
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        imageSelectButton.layer.cornerRadius = 5
+        nameLabel.text = currentUser?.username
+        imageSelectButton.roundCorner()
         profileIconLabel.makeCircle()
         tweetImageView.setContentMode()
-        
         let gesture = UITapGestureRecognizer(target: self, action: "tapView:")
         view.addGestureRecognizer(gesture)
-        
         imagePicker.delegate = self
-        
-        //mark
-        nameLabel.text = currentUser?.username
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -47,18 +42,24 @@ class NewTweetViewController: UIViewController, UIImagePickerControllerDelegate,
         // Dispose of any resources that can be recreated.
     }
     
-    //カメラロールアクセスを記述
-    @IBAction func tapImageSelectButton(sender: UIButton) {
-        self.imagePicker.sourceType = .PhotoLibrary
-        self.presentViewController(imagePicker, animated: true, completion: nil)
-    }
+    //MARK - delegate
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         tweetImageView.image = image
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-
-    //save tweet
+    
+    func tapView(sender: UITapGestureRecognizer) {
+        tweetTextView.resignFirstResponder()
+    }
+    
+    // MARK - action
+    
+    @IBAction func tapImageSelectButton(sender: UIButton) {
+        self.imagePicker.sourceType = .PhotoLibrary
+        self.presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
     func saveTweet() {
         let text = tweetTextView.text
         let image = tweetImageView.image
@@ -72,23 +73,7 @@ class NewTweetViewController: UIViewController, UIImagePickerControllerDelegate,
         tweet.saveTweet(callback)
     }
     
-    //delegate
-    func tapView(sender: UITapGestureRecognizer) {
-        tweetTextView.resignFirstResponder()
-    }
-    
-    // navigation
     func backToTweetsViewController() {
         dismissViewControllerAnimated(true, completion: nil)
     }
 }
-
-
-
-
-
-
-
-
-
-

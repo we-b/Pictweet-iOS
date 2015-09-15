@@ -48,9 +48,13 @@
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="tapEditButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="IoE-dK-vFc"/>
+                        </connections>
                     </button>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="vEO-1i-Tk7">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vEO-1i-Tk7">
                         <rect key="frame" x="115" y="43" width="90" height="90"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="90" id="kNh-gg-t7w"/>
                             <constraint firstAttribute="width" constant="90" id="nGM-JT-Oi9"/>
@@ -86,7 +90,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="profile_icon.png" width="1382" height="1308"/>
         <image name="rake.png" width="1582" height="1150"/>
     </resources>
 </document>

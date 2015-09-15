@@ -9,20 +9,24 @@
 import UIKit
 import CoreImage
 
+@objc protocol ProfileTableViewCellDelegate {
+    func tappedEditButton()
+}
+
 class ProfileTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
+    weak var delegate: ProfileTableViewCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         profileImageView.makeCircle()
-        editButton.layer.cornerRadius = 5
-        editButton.layer.borderWidth = 1
-        editButton.layer.borderColor = UIColor.whiteColor().CGColor
-
+        editButton.roundCorner()
+        editButton.drawBorderByWhiteColor()
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -31,4 +35,7 @@ class ProfileTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func tapEditButton(sender: UIButton) {
+        delegate?.tappedEditButton()
+    }
 }

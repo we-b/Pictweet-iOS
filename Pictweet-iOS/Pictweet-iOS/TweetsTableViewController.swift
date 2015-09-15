@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class TweetsTableViewController: UITableViewController, TweetDelegate, TweetManagerDelegate {
+class TweetsTableViewController: UITableViewController, TweetDelegate, TweetManagerDelegate, UserDelegate {
 
     let tweetManager = TweetManager.sharedInstanse
     
@@ -53,13 +53,14 @@ class TweetsTableViewController: UITableViewController, TweetDelegate, TweetMana
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetTableViewCell", forIndexPath: indexPath) as! TweetTableViewCell
         let tweet = tweetManager.tweets[indexPath.row]
         tweet.delegate = self
+        tweet.user?.delegate = self
         cell.tweetLabel.text      = tweet.text
         cell.tweetImageView.image = tweet.image
         cell.nameLabel.text = tweet.user?.name
+        cell.profileIconImageView.image = tweet.user?.image
         return cell
     }
     
-    //delegate
     func didFinishFetchingTweets() {
         tableView.reloadData()
     }
@@ -67,8 +68,13 @@ class TweetsTableViewController: UITableViewController, TweetDelegate, TweetMana
     func didFinishFetchingTweetsBy(tweetManager: TweetManager) {
         tableView.reloadData()
     }
+    
+    func didFinishUpdateUser() {
+        tableView.reloadData()
+    }
 
-    //segue
+    //MARK - action
+    
     func modalNewTweetTableViewController() {
         performSegueWithIdentifier("modalNewTweetTableViewController", sender: self)
     }
@@ -77,6 +83,5 @@ class TweetsTableViewController: UITableViewController, TweetDelegate, TweetMana
         PFUser.logOut()
         performSegueWithIdentifier("modalLoginTableViewController", sender: self)
     }
-
 
 }

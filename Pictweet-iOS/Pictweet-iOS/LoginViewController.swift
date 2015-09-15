@@ -19,8 +19,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        loginButton.layer.cornerRadius = 5
-        signUpButton.layer.cornerRadius = 5
+        loginButton.roundCorner()
+        signUpButton.roundCorner()
     }
 
     override func didReceiveMemoryWarning() {

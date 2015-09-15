@@ -13,8 +13,8 @@ import Parse
 extension UIImage {
     
     func convertToPFFile() -> PFFile {
-        let imageData = UIImagePNGRepresentation(self)
-        let imageFile = PFFile(name: "imageFile.png", data: imageData!)
+        let imageData = UIImageJPEGRepresentation(self, 0.0)
+        let imageFile = PFFile(name: "imageFile.png", data: imageData)
         return imageFile
     }
     

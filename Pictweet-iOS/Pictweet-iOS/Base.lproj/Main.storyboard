@@ -225,10 +225,79 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="YourName" id="bn6-0E-NKk"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="ejR-KE-WB6" kind="presentation" identifier="presentEditProfileViewController" id="hGO-xp-idJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oX9-P6-pxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1618.5" y="1090.5"/>
+        </scene>
+        <!--EDIT-->
+        <scene sceneID="pei-kf-kxk">
+            <objects>
+                <viewController id="sna-WM-07M" customClass="EditProfileViewController" customModule="Pictweet_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="udI-mu-GUd"/>
+                        <viewControllerLayoutGuide type="bottom" id="XJL-WZ-brb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gA7-i9-c4N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ljU-t2-NCP">
+                                <rect key="frame" x="16" y="72" width="343" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="noimage.png" translatesAutoresizingMaskIntoConstraints="NO" id="zcG-S7-J9u">
+                                <rect key="frame" x="16" y="119" width="50" height="50"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kco-3Y-WPO">
+                                <rect key="frame" x="16" y="110" width="343" height="1"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hS5-66-ZiY">
+                                <rect key="frame" x="16" y="177" width="343" height="1"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0af-WD-ozg">
+                                <rect key="frame" x="85" y="132" width="121" height="23"/>
+                                <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="12"/>
+                                <state key="normal" title="アイコンを選択">
+                                    <color key="titleColor" red="0.0" green="0.19215686269999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapSelectImageButton:" destination="sna-WM-07M" eventType="touchUpInside" id="0oy-W3-wfz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZlD-bD-jGu">
+                                <rect key="frame" x="16" y="197" width="343" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.19215686269999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="編集">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapEditButton:" destination="sna-WM-07M" eventType="touchUpInside" id="LIw-dT-qPo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="EDIT" id="8i2-Jb-UWE"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="editButton" destination="ZlD-bD-jGu" id="FFZ-UF-LVN"/>
+                        <outlet property="nameTextField" destination="ljU-t2-NCP" id="8rp-3l-rwS"/>
+                        <outlet property="profileImageView" destination="zcG-S7-J9u" id="bCB-Le-Pc6"/>
+                        <outlet property="selectImageButton" destination="0af-WD-ozg" id="yaK-ho-kh8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e9V-pX-6I2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2153.5" y="1888.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aPb-EE-nk2">
@@ -289,8 +358,28 @@
             </objects>
             <point key="canvasLocation" x="1160.5" y="1090.5"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Z2b-c6-Yvi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ejR-KE-WB6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yLA-e8-CLq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="sna-WM-07M" kind="relationship" relationship="rootViewController" id="AkH-67-HqU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IyV-ed-xeB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1618.5" y="1888.5"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="noimage.png" width="600" height="600"/>
         <image name="profile_icon.png" width="1382" height="1308"/>
     </resources>
 </document>

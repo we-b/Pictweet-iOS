@@ -15,10 +15,5 @@ extension UIImageView {
         contentMode = UIViewContentMode.ScaleAspectFill
         layer.masksToBounds = true
     }
-    
-    func makeCircle() {
-        layer.cornerRadius = frame.width / 2
-        layer.masksToBounds = true
-    }
-    
+
 }

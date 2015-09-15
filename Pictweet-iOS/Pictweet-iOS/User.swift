@@ -9,23 +9,40 @@
 import UIKit
 import Parse
 
+@objc protocol UserDelegate {
+    func didFinishUpdateUser()
+}
+
 class User: NSObject {
+    
     var name: String
     var password: String?
+    var image: UIImage?
+    weak var delegate: UserDelegate?
     
+    convenience init(attribute: PFUser) {
+        let name      = attribute.username
+        let imageFile = attribute["image"] as! PFFile
+        self.init(name: name!, image: nil)
+        fetchUserImage(imageFile)
+    }
+
+    init(name: String, image: UIImage?) {
+        self.name = name
+        self.image = image
+    }
+    
+    //ログイン時のみ使用
     init(name: String, password: String) {
         self.name     = name
         self.password = password
-    }
-    
-    init(name: String) {
-        self.name = name
     }
     
     func signUp(callback: (message: String?) -> Void) {
         let user = PFUser()
         user.username = name
         user.password = password
+        user["image"] = UIImage(named: "noimage")?.convertToPFFile()
         user.signUpInBackgroundWithBlock { (success, error) -> Void in
             if error == nil {
                 callback(message: nil)
@@ -45,4 +62,24 @@ class User: NSObject {
         }
     }
     
+    func update(callback: () -> Void) {
+        let currentUser = PFUser.currentUser()
+        currentUser?.username = name
+        currentUser?["image"] = image?.convertToPFFile()
+        currentUser?.saveInBackgroundWithBlock({ (success, error) -> Void in
+            if success {
+                println("update!")
+                callback()
+            }
+        })
+    }
+    
+    func fetchUserImage(imageFile: PFFile) {
+        imageFile.getDataInBackgroundWithBlock({ (imageData, error) -> Void in
+            if error == nil {
+                self.image = UIImage(data: imageData!)
+                self.delegate?.didFinishUpdateUser()
+            }
+        })
+    }
 }

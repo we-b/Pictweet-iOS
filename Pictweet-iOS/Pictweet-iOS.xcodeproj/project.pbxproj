@@ -10,8 +10,12 @@
 		321993D81BA053FC009B733A /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321993D61BA053FC009B733A /* ProfileTableViewCell.swift */; };
 		321993D91BA053FC009B733A /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 321993D71BA053FC009B733A /* ProfileTableViewCell.xib */; };
 		321993DB1BA05563009B733A /* MyPageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321993DA1BA05563009B733A /* MyPageTableViewController.swift */; };
+		321993DE1BA178C2009B733A /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321993DD1BA178C2009B733A /* EditProfileViewController.swift */; };
+		321993E01BA17C8A009B733A /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321993DF1BA17C8A009B733A /* UIColor+Extension.swift */; };
+		321993E21BA17D7E009B733A /* noimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 321993E11BA17D7E009B733A /* noimage.png */; };
 		324FA1171B9D944A00229332 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324FA1161B9D944A00229332 /* LoginViewController.swift */; };
 		324FA1191B9D9A6300229332 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324FA1181B9D9A6300229332 /* User.swift */; };
+		32C3A1661BA878DF00775C31 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C3A1651BA878DF00775C31 /* UIView+Extension.swift */; };
 		32DECB5D1B9334AE000CAD11 /* TweetsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DECB5C1B9334AE000CAD11 /* TweetsTableViewController.swift */; };
 		32DECB631B933505000CAD11 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DECB611B933505000CAD11 /* TweetTableViewCell.swift */; };
 		32DECB641B933505000CAD11 /* TweetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32DECB621B933505000CAD11 /* TweetTableViewCell.xib */; };
@@ -58,8 +62,12 @@
 		321993D61BA053FC009B733A /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		321993D71BA053FC009B733A /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
 		321993DA1BA05563009B733A /* MyPageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageTableViewController.swift; sourceTree = "<group>"; };
+		321993DD1BA178C2009B733A /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		321993DF1BA17C8A009B733A /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		321993E11BA17D7E009B733A /* noimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noimage.png; sourceTree = "<group>"; };
 		324FA1161B9D944A00229332 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		324FA1181B9D9A6300229332 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		32C3A1651BA878DF00775C31 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		32DECB5C1B9334AE000CAD11 /* TweetsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsTableViewController.swift; sourceTree = "<group>"; };
 		32DECB611B933505000CAD11 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 		32DECB621B933505000CAD11 /* TweetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetTableViewCell.xib; sourceTree = "<group>"; };
@@ -134,6 +142,7 @@
 				32DECB831B9469EE000CAD11 /* NewTweetViewController.swift */,
 				324FA1161B9D944A00229332 /* LoginViewController.swift */,
 				321993DA1BA05563009B733A /* MyPageTableViewController.swift */,
+				321993DD1BA178C2009B733A /* EditProfileViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -162,6 +171,7 @@
 		32DECB6F1B933A24000CAD11 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				321993E11BA17D7E009B733A /* noimage.png */,
 				32DECB761B935397000CAD11 /* icon@2x.png */,
 				32DECB741B934FE9000CAD11 /* LaunchScreen.png */,
 				32DECB701B933A8A000CAD11 /* profile_icon.png */,
@@ -175,6 +185,8 @@
 			children = (
 				32DECB7E1B9362F6000CAD11 /* UIImageView+Extension.swift */,
 				32DECB871B9ACAC6000CAD11 /* UIImage+Extension.swift */,
+				321993DF1BA17C8A009B733A /* UIColor+Extension.swift */,
+				32C3A1651BA878DF00775C31 /* UIView+Extension.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -341,6 +353,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				321993E21BA17D7E009B733A /* noimage.png in Resources */,
 				32E01BCF1B932E17007C25AF /* Main.storyboard in Resources */,
 				32DECB771B935397000CAD11 /* icon@2x.png in Resources */,
 				32DECB6E1B933A1B000CAD11 /* rake.png in Resources */,
@@ -367,12 +380,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				321993DE1BA178C2009B733A /* EditProfileViewController.swift in Sources */,
 				324FA1171B9D944A00229332 /* LoginViewController.swift in Sources */,
 				32E01BCA1B932E17007C25AF /* AppDelegate.swift in Sources */,
+				32C3A1661BA878DF00775C31 /* UIView+Extension.swift in Sources */,
 				32DECB691B93353D000CAD11 /* TweetManager.swift in Sources */,
 				321993D81BA053FC009B733A /* ProfileTableViewCell.swift in Sources */,
 				32DECB841B9469EE000CAD11 /* NewTweetViewController.swift in Sources */,
 				32DECB881B9ACAC6000CAD11 /* UIImage+Extension.swift in Sources */,
+				321993E01BA17C8A009B733A /* UIColor+Extension.swift in Sources */,
 				32DECB7F1B9362F6000CAD11 /* UIImageView+Extension.swift in Sources */,
 				32DECB5D1B9334AE000CAD11 /* TweetsTableViewController.swift in Sources */,
 				321993DB1BA05563009B733A /* MyPageTableViewController.swift in Sources */,

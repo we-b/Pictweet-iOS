@@ -40,7 +40,6 @@ class Tweet: NSObject {
         tweetsObject["user_id"] = PFUser.currentUser()?.objectId
         let relation = tweetsObject.relationForKey("user") //PFRelation
         relation.addObject(PFUser.currentUser()!)
-        
         tweetsObject.saveInBackgroundWithBlock { (success, error) -> Void in
             if success {
                 println("Tweet has been saved")
@@ -54,7 +53,7 @@ class Tweet: NSObject {
         relation.query()?.getFirstObjectInBackgroundWithBlock({ (object, error) -> Void in
             if error == nil {
                 let userObject = object as! PFUser
-                let user = User(name: userObject.username!)
+                let user = User(attribute: userObject)
                 self.user = user
                 self.delegate?.didFinishFetchingTweets()
             }
